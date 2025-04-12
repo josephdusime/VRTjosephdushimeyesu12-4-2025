@@ -25,7 +25,7 @@ def index():
     with sqlite3.connect("database.db") as conn:
         c = conn.cursor()
         # Fetch all data for chart
-        c.execute("SELECT humidity, temperature, soil_moisture, timestamp FROM sensor_data ORDER BY timestamp ASC")
+        c.execute("SELECT humidity, temperature, soil_moisture, timestamp FROM sensor_data ORDER BY timestamp DESC LIMIT 30")
         all_rows = c.fetchall()
 
         # Fetch recent 10 entries for table
